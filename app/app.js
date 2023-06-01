@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const userRouter = require('../router/userRouter');
 const app = express();
+const {connect} = require('../db/db');
+
 // use middleware to form our contract for incoming json payloads ONLY!!
 app.use(express.json());
 // use middleware for url encoding
@@ -45,4 +47,5 @@ app.use((error, req,res,next) => {
     });
 })
 
+connect();
 module.exports = app;
