@@ -1,37 +1,15 @@
 const express = require('express');
 const router = express.Router();
+const {saveUser} = require("../models/userModel")
 
-//route for : http://localhost:3001/users/1
-router.get("/", (req, res,next)=>{
-    res.status(200).json({
-        message: "Successfull - Get",
-        metadata: {
-            hostname: req.hostname,
-            method: req.method
-        }
-    })
+router.post("/register", (req,res,next) => {
+    //  findUser
+    // if the user exist return response email exists
+    // else encrypt the password
+    // set the paswd with encrypted pass then save
+    // saveUser(newUser);
 });
-//route for : http://localhost:3001/users/12
-router.get("/:id", (req, res,next)=>{
-    res.status(200).json({
-        message: "Successfull - GET by id",
-        metadata: {
-            id: req.params.id,
-            hostname: req.hostname,
-            method: req.method
-        }
-    })
-});
+router.post("/login", (req,res) => {
 
-router.post("/", (req, res,next)=>{
-    const name = req.body.name // payload | { "name": "Jhurs"}
-    res.status(200).json({
-        message: "Successfull - POST",
-        metadata: {
-            name: name, // JHurs
-            hostname: req.hostname,
-            method: req.method
-        }
-    })
 });
-module.exports = router;
+module.exports = router; 
